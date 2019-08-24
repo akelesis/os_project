@@ -25,12 +25,14 @@ export default {
   },
   methods: {
     compactMemory(){
-      for(let i = 0; i < this.memory.length; i++){
+      for(let i = 0; i < this.memory.length+1; i++){
         if(this.memory[i].name == "Livre"){
-          this.freeMemory += this.memory[i].length
+          this.freeMemory += parseInt(this.memory[i].length)
+          console.log(this.freeMemory)
           this.$store.commit('removeProcess', i)
         }
       }
+      this.memory[this.memory.length] = {name: "Livre", length: this.freeMemory, index: this.memory.length}
     }
   },
   computed: {
