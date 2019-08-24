@@ -1,7 +1,7 @@
 <template>
-  <div class="list-process">
+    <div class="memorystate">
       <div class="graphics">
-          {{processes}}
+          <h3>Espaço livre: {{space}} MB</h3>
       </div>
       <div class="return-btn"><router-link to="/">Retornar</router-link></div>
   </div>
@@ -11,14 +11,14 @@
 export default {
     data(){
         return{
-            processes: []
+            space: ''
         }
     },
     methods: {
-        listProcess(){
+        getSpace(){
             for(let i = 0; i < this.memory.length; i++){
-                if(this.memory[i].name !== 'Livre'){
-                    this.processes.push(this.memory[i])
+                if(this.memory[i].name === "Livre"){
+                    this.space += this.memory[i].length
                 }
             }
         }
@@ -28,8 +28,8 @@ export default {
             return this.$store.state.memory
         }
     },
-    mounted() {
-        this.listProcess()
+    mounted(){
+        this.getSpace()
     }
 }
 </script>

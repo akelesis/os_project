@@ -8,8 +8,8 @@
           <router-link to="/listProcess"><li>Listar Processos</li></router-link>
           <router-link to="/deleteProcess"><li>Excluir Processo</li></router-link>
           <router-link to="freeSpace"><li>Total de Memória Livre</li></router-link>
-          <router-link to="memoryState"><li>Estado Atual da Memória</li></router-link>
-          <router-link to="compactMemory"><li>Compactar Memória</li></router-link>
+          <router-link to="/memoryState"><li>Estado Atual da Memória</li></router-link>
+          <li class="menu-item" @click="compactMemory()">Compactar Memória</li>
         </ul>
     </div>
   </div>
@@ -18,6 +18,26 @@
 <script>
 export default {
   name: 'Main',
+  data(){
+    return{
+      freeMemory: 0
+    }
+  },
+  methods: {
+    compactMemory(){
+      for(let i = 0; i < this.memory.length; i++){
+        if(this.memory[i].name == "Livre"){
+          this.freeMemory += this.memory[i].length
+          this.$store.commit('removeProcess', i)
+        }
+      }
+    }
+  },
+  computed: {
+    memory(){
+      return this.$store.state.memory
+    }
+  }
 }
 </script>
 
@@ -36,5 +56,17 @@ li {
 }
 a {
   color: #42b983;
+}
+a:hover{
+  color: #2b7c58;
+}
+
+.menu-item{
+  color: #42b983;
+}
+
+.menu-item:hover{
+  color: #2b7c58;
+  cursor: pointer;
 }
 </style>

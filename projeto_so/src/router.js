@@ -30,12 +30,28 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/MemoryState.vue')
     },
     {
-      path: '/DeleteProcess',
+      path: '/deleteProcess',
       name: 'deleteProcess',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/DeleteProcess.vue')
+    },
+    {
+      path: '/listProcess',
+      name: 'listProcess',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/ListProcess.vue')
+    },
+    {
+      path: '/freeSpace',
+      name: 'freeSpace',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/FreeSpace.vue')
     },
   ]
 })

@@ -12,6 +12,10 @@ export default new Vuex.Store({
     changePoint(state, payload){
       console.log(payload)
       state.lastPoint = payload
+    },
+    removeProcess(state, payload){
+      console.log(payload)
+      state.memory.splice(payload)
     }
   },
   actions: {
