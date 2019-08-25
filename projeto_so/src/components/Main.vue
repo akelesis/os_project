@@ -32,16 +32,12 @@ export default {
           this.freeMemory += parseInt(this.memory[i].length)
         }
         else{
-          this.compactedMemory.push({name: this.memory[i].name, length: this.memory[i].length, index: index})
+          this.compactedMemory.push({name: this.memory[i].name, length: this.memory[i].length, index: parseInt(this.compactedMemory.length)})
           index++;
         }
       }
-      if(this.compactedMemory.length > 0){
-        this.compactedMemory.push({name: "Livre", length: this.freeMemory, index: parseInt(this.compactMemory.length) + 1})
-      }
-      else{
-        this.compactedMemory.push({name: "Livre", length: this.freeMemory, index: this.compactMemory.length})
-      }
+      this.compactedMemory.push({name: "Livre", length: this.freeMemory, index: parseInt(this.compactedMemory.length)})
+      console.log(this.compactMemory)
       this.$store.commit('compactProcess', this.compactedMemory)
     }
   },
