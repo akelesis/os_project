@@ -44,19 +44,17 @@ export default {
         }
       }
       if (this.process.index == "" && this.process.name !== ""){
-        
+        let aux = {}
         for(let i = 0; i < this.memory.length; i++){
           if(this.memory[i].name === this.process.name){
-            aux = this.memory[this.process.index]
+            aux = this.memory[i]
             aux.name = "Livre"
-            this.memory[process.index] = aux;
+            this.memory[i] = aux;
             alert("Processo excluído com sucesso!");
+            return
           }
-          else{
-            alert(
-            "Comando não pôde ser executado, verifique se o processo existe!"
-          );
-          }
+          alert("Comando não pôde ser executado, verifique se o processo existe!");
+          
         }
       }
     }
