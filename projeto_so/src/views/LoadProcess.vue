@@ -28,6 +28,7 @@ export default {
   },
   methods: {
     submitFirst() {
+      this.process.length = Math.ceil(this.process.length)
       for (let i = 0; i < this.memory.length; i++) {
         if (this.memory[i].length > this.process.length && this.memory[i].name == "Livre") {
           this.memory[i].length -= this.process.length;
