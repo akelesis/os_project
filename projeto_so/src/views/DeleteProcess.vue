@@ -29,6 +29,7 @@ export default {
   },
   methods: {
     remove() {
+      let aux = ""
       if (this.process.index != "" && this.process.name == "") {
         if (this.memory[this.process.index].name != "Livre") {
           let aux = this.memory[this.process.index]
@@ -42,20 +43,21 @@ export default {
           );
         }
       }
-      if (process.index == "" && process.name != ""){
+      if (this.process.index == "" && this.process.name !== ""){
+        
         for(let i = 0; i < this.memory.length; i++){
           if(this.memory[i].name === this.process.name){
-            let aux = this.memory[this.process.index]
+            aux = this.memory[this.process.index]
             aux.name = "Livre"
             this.memory[process.index] = aux;
             alert("Processo excluído com sucesso!");
           }
-        }
-      }
-      else{
-        alert(
+          else{
+            alert(
             "Comando não pôde ser executado, verifique se o processo existe!"
           );
+          }
+        }
       }
     }
   },

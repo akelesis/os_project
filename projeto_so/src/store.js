@@ -16,6 +16,10 @@ export default new Vuex.Store({
     removeProcess(state, payload){
       console.log(payload)
       state.memory.splice(payload)
+    },
+    compactProcess(state, payload){
+      console.log(payload)
+      state.memory = payload
     }
   },
   actions: {

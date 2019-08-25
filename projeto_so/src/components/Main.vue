@@ -20,19 +20,29 @@ export default {
   name: 'Main',
   data(){
     return{
-      freeMemory: 0
+      freeMemory: 0,
+      compactedMemory: new Array
     }
   },
   methods: {
     compactMemory(){
-      for(let i = 0; i < this.memory.length+1; i++){
+      let index = 0
+      for(let i = 0; i < this.memory.length; i++){
         if(this.memory[i].name == "Livre"){
           this.freeMemory += parseInt(this.memory[i].length)
-          console.log(this.freeMemory)
-          this.$store.commit('removeProcess', i)
+        }
+        else{
+          this.compactedMemory.push({name: this.memory[i].name, length: this.memory[i].length, index: index})
+          index++;
         }
       }
-      this.memory[this.memory.length] = {name: "Livre", length: this.freeMemory, index: this.memory.length}
+      if(this.compactedMemory.length > 0){
+        this.compactedMemory.push({name: "Livre", length: this.freeMemory, index: parseInt(this.compactMemory.length) + 1})
+      }
+      else{
+        this.compactedMemory.push({name: "Livre", length: this.freeMemory, index: this.compactMemory.length})
+      }
+      this.$store.commit('compactProcess', this.compactedMemory)
     }
   },
   computed: {
