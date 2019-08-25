@@ -11,14 +11,14 @@
 export default {
     data(){
         return{
-            space: ''
+            space: 0
         }
     },
     methods: {
         getSpace(){
             for(let i = 0; i < this.memory.length; i++){
                 if(this.memory[i].name === "Livre"){
-                    this.space += this.memory[i].length
+                    this.space += parseInt(this.memory[i].length)
                 }
             }
         }
