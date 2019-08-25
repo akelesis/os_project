@@ -43,6 +43,8 @@ export default {
         }
         if (this.memory[i].length === this.process.length && this.memory[i].name == "Livre") {
           this.memory[i] = this.process;
+          alert("alocação de processo realizada com sucesso!")
+          this.$router.push("/")
           return;
         }
       }
@@ -67,6 +69,8 @@ export default {
           this.memory[i] = this.process;
           console.log(this.process.index)
           this.$store.commit('changePoint', this.process.index)
+          alert("alocação de processo realizada com sucesso!")
+          this.$router.push("/")
           return;
         }
         if (
@@ -75,6 +79,8 @@ export default {
         ) {
           this.memory[i] = this.process;
           this.$store.commit('changePoint', this.process.index)
+          alert("alocação de processo realizada com sucesso!")
+          this.$router.push("/")
           return;
         }
         i++
@@ -90,6 +96,8 @@ export default {
               this.memory[i].name == "Livre"
             ) {
               this.memory[i] = this.process;
+              alert("alocação de processo realizada com sucesso!")
+              this.$router.push("/")
               return;
             }
             this.memory[i].length -= this.process.length;
@@ -99,6 +107,8 @@ export default {
             }
             this.process.index = i;
             this.memory[i] = this.process;
+            alert("alocação de processo realizada com sucesso!")
+            this.$router.push("/")
             return;
           }
         }
@@ -114,6 +124,8 @@ export default {
               this.memory[i].name == "Livre"
             ) {
               this.memory[i] = this.process;
+              alert("alocação de processo realizada com sucesso!")
+              this.$router.push("/")
               return;
             }
             this.memory[i].length -= this.process.length;
@@ -123,6 +135,8 @@ export default {
             }
             this.process.index = i;
             this.memory[i] = this.process;
+            alert("alocação de processo realizada com sucesso!")
+            this.$router.push("/")
             return;
           }
         }
