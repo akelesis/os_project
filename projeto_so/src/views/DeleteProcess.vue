@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     remove() {
-      let aux = ""
       if (this.process.index != "" && this.process.name == "") {
         if (this.memory[this.process.index].name != "Livre") {
           let aux = this.memory[this.process.index]

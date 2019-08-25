@@ -29,10 +29,7 @@ export default {
   methods: {
     submitFirst() {
       for (let i = 0; i < this.memory.length; i++) {
-        if (
-          this.memory[i].length > this.process.length &&
-          this.memory[i].name == "Livre"
-        ) {
+        if (this.memory[i].length > this.process.length && this.memory[i].name == "Livre") {
           this.memory[i].length -= this.process.length;
           for (let j = this.memory.length - 1; j >= i; j--) {
             this.memory[j + 1] = this.memory[j];
@@ -40,12 +37,11 @@ export default {
           }
           this.process.index = i;
           this.memory[i] = this.process;
-          return;
+          alert("alocação de processo realizada com sucesso!")
+          this.$router.push("/")
+          return
         }
-        if (
-          this.memory[i].length === this.process.length &&
-          this.memory[i].name == "Livre"
-        ) {
+        if (this.memory[i].length === this.process.length && this.memory[i].name == "Livre") {
           this.memory[i] = this.process;
           return;
         }

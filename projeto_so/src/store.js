@@ -20,6 +20,10 @@ export default new Vuex.Store({
     compactProcess(state, payload){
       console.log(payload)
       state.memory = payload
+    },
+    loadProcess(state, payload){
+      console.log(payload)
+      state.memory = payload
     }
   },
   actions: {
